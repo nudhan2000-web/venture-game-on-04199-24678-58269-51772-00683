@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { AnimationProvider } from "@/contexts/AnimationContext";
 import LoadingScreen from "@/components/LoadingScreen";
+import BackButton from "@/components/BackButton";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import EventFlowSection from "@/components/EventFlowSection";
@@ -38,17 +39,20 @@ const Index = () => {
       </AnimatePresence>
       
       {!showLoading && (
-        <main className="bg-black space-y-0 overflow-x-hidden max-w-full">
-          <HeroSection />
-          <AboutSection />
-          <EventFlowSection />
-          <EvaluationSection />
-          <RulesSection />
-          <ActivitySection />
-          <RequirementsSection />
-          <CoordinatorsSection />
-          <EndingSection />
-        </main>
+        <>
+          <BackButton />
+          <main className="bg-black space-y-0 overflow-x-hidden max-w-full">
+            <HeroSection />
+            <AboutSection />
+            <EventFlowSection />
+            <EvaluationSection />
+            <RulesSection />
+            <ActivitySection />
+            <RequirementsSection />
+            <CoordinatorsSection />
+            <EndingSection />
+          </main>
+        </>
       )}
     </AnimationProvider>
   );
