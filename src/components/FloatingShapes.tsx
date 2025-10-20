@@ -116,27 +116,39 @@ const FloatingShapes = () => {
       />
       
       {/* Squid Game shapes */}
-      {shapes.map((shape, index) => (
-        <motion.div
-          key={index}
-          className={`absolute ${shape.isGold ? 'text-[hsl(45,100%,51%)]' : 'text-primary'}`}
-          style={{ left: shape.x, top: shape.y }}
-          animate={{
-            y: [0, -40, 0],
-            rotate: [0, 360],
-            opacity: [0.4, 0.6, 0.4],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: shape.duration,
-            repeat: Infinity,
-            delay: shape.delay,
-            ease: "easeInOut",
-          }}
-        >
-          {renderShape(shape.type, shape.size, shape.isGold)}
-        </motion.div>
-      ))}
+      {shapes.map((shape, index) => {
+        // Reduce shapes on mobile for better performance
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+        const shouldRender = !isMobile || index % 2 === 0; // Show every other shape on mobile
+        
+        if (!shouldRender) return null;
+        
+        return (
+          <motion.div
+            key={index}
+            className={`absolute ${shape.isGold ? 'text-[hsl(45,100%,51%)]' : 'text-primary'}`}
+            style={{ 
+              left: shape.x, 
+              top: shape.y,
+              willChange: 'transform, opacity'
+            }}
+            animate={{
+              y: [0, -40, 0],
+              rotate: [0, 360],
+              opacity: [0.4, 0.6, 0.4],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: shape.duration,
+              repeat: Infinity,
+              delay: shape.delay,
+              ease: "easeInOut",
+            }}
+          >
+            {renderShape(shape.type, shape.size, shape.isGold)}
+          </motion.div>
+        );
+      })}
     </div>
   );
 };

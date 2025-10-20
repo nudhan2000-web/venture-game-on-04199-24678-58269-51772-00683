@@ -45,6 +45,7 @@ const EventFlowSection = () => {
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   className={`relative flex items-center ${isEven ? 'flex-row' : 'flex-row-reverse'} gap-4 md:gap-8`}
+                  style={{ willChange: 'transform, opacity' }}
                 >
                   {/* Left/Right content */}
                   <div className={`flex ${isEven ? 'justify-end' : 'justify-start'} w-1/2`}>

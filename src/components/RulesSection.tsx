@@ -55,6 +55,7 @@ const RulesSection = () => {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group flex items-start gap-3 sm:gap-4 bg-card border border-primary/20 p-4 sm:p-6 rounded-lg hover:border-primary hover:bg-card/80 hover:box-glow transition-all duration-300"
+              style={{ willChange: 'transform, opacity' }}
             >
               <div className="mt-1 flex-shrink-0">
                 <div className="w-8 h-8 flex items-center justify-center">
