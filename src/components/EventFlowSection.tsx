@@ -31,7 +31,7 @@ const EventFlowSection = () => {
         
         <div className="relative">
           {/* Connecting line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-accent to-primary opacity-30" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-accent to-primary opacity-30" />
           
           <div className="space-y-6 md:space-y-12">
             {steps.map((step, index) => {
@@ -44,20 +44,20 @@ const EventFlowSection = () => {
                   initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className={`relative flex items-center ${isEven ? 'flex-row' : 'flex-row-reverse'} gap-8`}
+                  className={`relative flex items-center ${isEven ? 'flex-row' : 'flex-row-reverse'} gap-4 md:gap-8`}
                 >
                   {/* Left/Right content */}
                   <div className={`flex ${isEven ? 'justify-end' : 'justify-start'} w-1/2`}>
-                    <div className="bg-card border border-primary/30 p-4 md:p-6 rounded-lg max-w-sm hover:border-primary hover:box-glow transition-all duration-300">
-                      <h3 className="font-orbitron text-base sm:text-xl text-primary mb-2">{step.title}</h3>
-                      <p className="text-sm text-muted-foreground">{step.description}</p>
+                    <div className="bg-card border border-primary/30 p-3 md:p-6 rounded-lg max-w-sm hover:border-primary hover:box-glow transition-all duration-300">
+                      <h3 className="font-orbitron text-sm sm:text-base md:text-xl text-primary mb-1 md:mb-2">{step.title}</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{step.description}</p>
                     </div>
                   </div>
                   
                   {/* Center icon */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-black border-2 border-primary rounded-full p-3 md:p-4 animate-pulse-glow">
-                      <Icon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+                    <div className="bg-black border-2 border-primary rounded-full p-2 md:p-4 animate-pulse-glow">
+                      <Icon className="w-5 h-5 md:w-8 md:h-8 text-primary" />
                     </div>
                   </div>
                   

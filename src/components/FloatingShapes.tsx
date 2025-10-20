@@ -11,6 +11,12 @@ const FloatingShapes = () => {
     { type: "square", delay: 1.8, duration: 10, x: "30%", y: "50%", size: 70, isGold: false },
     { type: "triangle", delay: 0.8, duration: 13, x: "70%", y: "45%", size: 55, isGold: true },
     { type: "circle", delay: 2.2, duration: 9, x: "25%", y: "35%", size: 85, isGold: false },
+    { type: "dollar", delay: 1.2, duration: 10, x: "20%", y: "60%", size: 50, isGold: true },
+    { type: "dollar", delay: 2.5, duration: 11, x: "75%", y: "15%", size: 55, isGold: true },
+    { type: "dollar", delay: 0.3, duration: 9, x: "40%", y: "80%", size: 45, isGold: true },
+    { type: "dollar", delay: 1.8, duration: 12, x: "90%", y: "50%", size: 60, isGold: true },
+    { type: "dollar", delay: 0.7, duration: 10, x: "5%", y: "40%", size: 50, isGold: true },
+    { type: "dollar", delay: 2.0, duration: 11, x: "60%", y: "30%", size: 55, isGold: true },
   ];
 
   const renderShape = (type: string, size: number, isGold: boolean) => {
@@ -57,6 +63,23 @@ const FloatingShapes = () => {
               strokeWidth="2.5"
               className="animate-pulse"
             />
+          </svg>
+        );
+      case "dollar":
+        return (
+          <svg width={size} height={size} viewBox="0 0 60 60" className={`opacity-40 ${shadowClass}`}>
+            <text 
+              x="50%" 
+              y="50%" 
+              dominantBaseline="middle" 
+              textAnchor="middle" 
+              fill="currentColor" 
+              fontSize="36" 
+              fontWeight="bold"
+              className="animate-pulse"
+            >
+              $
+            </text>
           </svg>
         );
       default:
