@@ -44,30 +44,24 @@ const EventFlowSection = () => {
                   initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className={`relative flex items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8`}
+                  className={`relative flex items-center ${isEven ? 'flex-row' : 'flex-row-reverse'} gap-8`}
                 >
-                  {/* Desktop layout */}
-                  <div className={`hidden md:flex ${isEven ? 'justify-end' : 'justify-start'} w-1/2`}>
-                    <div className="bg-card border border-primary/30 p-6 rounded-lg max-w-sm hover:border-primary hover:box-glow transition-all duration-300">
-                      <h3 className="font-orbitron text-xl text-primary mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground">{step.description}</p>
+                  {/* Left/Right content */}
+                  <div className={`flex ${isEven ? 'justify-end' : 'justify-start'} w-1/2`}>
+                    <div className="bg-card border border-primary/30 p-4 md:p-6 rounded-lg max-w-sm hover:border-primary hover:box-glow transition-all duration-300">
+                      <h3 className="font-orbitron text-base sm:text-xl text-primary mb-2">{step.title}</h3>
+                      <p className="text-sm text-muted-foreground">{step.description}</p>
                     </div>
                   </div>
                   
                   {/* Center icon */}
-                  <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 z-10">
-                    <div className="bg-black border-2 border-primary rounded-full p-4 animate-pulse-glow">
-                      <Icon className="w-8 h-8 text-primary" />
+                  <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-black border-2 border-primary rounded-full p-3 md:p-4 animate-pulse-glow">
+                      <Icon className="w-6 h-6 md:w-8 md:h-8 text-primary" />
                     </div>
                   </div>
                   
-                  {/* Mobile layout */}
-                  <div className="md:hidden ml-16 bg-card border border-primary/30 p-4 rounded-lg hover:border-primary hover:box-glow transition-all duration-300">
-                    <h3 className="font-orbitron text-base sm:text-xl text-primary mb-2">{step.title}</h3>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
-                  </div>
-                  
-                  <div className="hidden md:block w-1/2" />
+                  <div className="w-1/2" />
                 </motion.div>
               );
             })}

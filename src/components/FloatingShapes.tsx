@@ -3,21 +3,24 @@ import { motion } from "framer-motion";
 const FloatingShapes = () => {
   // Squid Game inspired shapes - more variety and presence
   const shapes = [
-    { type: "triangle", delay: 0, duration: 8, x: "15%", y: "15%", size: 70 },
-    { type: "circle", delay: 1, duration: 10, x: "85%", y: "25%", size: 80 },
-    { type: "square", delay: 2, duration: 12, x: "10%", y: "75%", size: 65 },
-    { type: "triangle", delay: 1.5, duration: 9, x: "80%", y: "70%", size: 75 },
-    { type: "circle", delay: 0.5, duration: 11, x: "50%", y: "10%", size: 60 },
-    { type: "square", delay: 1.8, duration: 10, x: "30%", y: "50%", size: 70 },
-    { type: "triangle", delay: 0.8, duration: 13, x: "70%", y: "45%", size: 55 },
-    { type: "circle", delay: 2.2, duration: 9, x: "25%", y: "35%", size: 85 },
+    { type: "triangle", delay: 0, duration: 8, x: "15%", y: "15%", size: 70, isGold: true },
+    { type: "circle", delay: 1, duration: 10, x: "85%", y: "25%", size: 80, isGold: false },
+    { type: "square", delay: 2, duration: 12, x: "10%", y: "75%", size: 65, isGold: true },
+    { type: "triangle", delay: 1.5, duration: 9, x: "80%", y: "70%", size: 75, isGold: false },
+    { type: "circle", delay: 0.5, duration: 11, x: "50%", y: "10%", size: 60, isGold: true },
+    { type: "square", delay: 1.8, duration: 10, x: "30%", y: "50%", size: 70, isGold: false },
+    { type: "triangle", delay: 0.8, duration: 13, x: "70%", y: "45%", size: 55, isGold: true },
+    { type: "circle", delay: 2.2, duration: 9, x: "25%", y: "35%", size: 85, isGold: false },
   ];
 
-  const renderShape = (type: string, size: number) => {
+  const renderShape = (type: string, size: number, isGold: boolean) => {
+    const colorClass = isGold ? "text-[hsl(45,100%,51%)]" : "text-primary";
+    const shadowClass = isGold ? "drop-shadow-[0_0_10px_rgba(255,215,0,0.4)]" : "drop-shadow-[0_0_10px_rgba(255,10,84,0.4)]";
+    
     switch (type) {
       case "triangle":
         return (
-          <svg width={size} height={size} viewBox="0 0 60 60" className="opacity-40 drop-shadow-[0_0_10px_rgba(255,10,84,0.4)]">
+          <svg width={size} height={size} viewBox="0 0 60 60" className={`opacity-40 ${shadowClass}`}>
             <polygon 
               points="30,10 50,50 10,50" 
               fill="none" 
@@ -29,7 +32,7 @@ const FloatingShapes = () => {
         );
       case "circle":
         return (
-          <svg width={size} height={size} viewBox="0 0 60 60" className="opacity-40 drop-shadow-[0_0_10px_rgba(255,10,84,0.4)]">
+          <svg width={size} height={size} viewBox="0 0 60 60" className={`opacity-40 ${shadowClass}`}>
             <circle 
               cx="30" 
               cy="30" 
@@ -43,7 +46,7 @@ const FloatingShapes = () => {
         );
       case "square":
         return (
-          <svg width={size} height={size} viewBox="0 0 60 60" className="opacity-40 drop-shadow-[0_0_10px_rgba(255,10,84,0.4)]">
+          <svg width={size} height={size} viewBox="0 0 60 60" className={`opacity-40 ${shadowClass}`}>
             <rect 
               x="15" 
               y="15" 
@@ -93,7 +96,7 @@ const FloatingShapes = () => {
       {shapes.map((shape, index) => (
         <motion.div
           key={index}
-          className="absolute text-primary"
+          className={`absolute ${shape.isGold ? 'text-[hsl(45,100%,51%)]' : 'text-primary'}`}
           style={{ left: shape.x, top: shape.y }}
           animate={{
             y: [0, -40, 0],
@@ -108,7 +111,7 @@ const FloatingShapes = () => {
             ease: "easeInOut",
           }}
         >
-          {renderShape(shape.type, shape.size)}
+          {renderShape(shape.type, shape.size, shape.isGold)}
         </motion.div>
       ))}
     </div>

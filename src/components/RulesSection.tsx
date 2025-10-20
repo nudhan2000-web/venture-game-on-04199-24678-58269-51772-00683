@@ -8,6 +8,7 @@ const RulesSection = () => {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const rules = [
+    "The team size can be 3 to 4 members",
     "Each team gets 7-10 minutes for their pitch presentation",
     "Teams must present their business idea clearly with supporting materials",
     "Judges and audience members receive fake Ventura currency for investment",

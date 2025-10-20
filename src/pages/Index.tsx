@@ -3,13 +3,13 @@ import { AnimatePresence } from "framer-motion";
 import { AnimationProvider } from "@/contexts/AnimationContext";
 import LoadingScreen from "@/components/LoadingScreen";
 import BackButton from "@/components/BackButton";
+import RegisterButton from "@/components/RegisterButton";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import EventFlowSection from "@/components/EventFlowSection";
 import EvaluationSection from "@/components/EvaluationSection";
 import RulesSection from "@/components/RulesSection";
 import ActivitySection from "@/components/ActivitySection";
-import RequirementsSection from "@/components/RequirementsSection";
 import CoordinatorsSection from "@/components/CoordinatorsSection";
 
 import EndingSection from "@/components/EndingSection";
@@ -41,6 +41,7 @@ const Index = () => {
       {!showLoading && (
         <>
           <BackButton />
+          <RegisterButton />
           <main className="bg-black space-y-0 overflow-x-hidden max-w-full">
             <HeroSection />
             <AboutSection />
@@ -48,7 +49,6 @@ const Index = () => {
             <EvaluationSection />
             <RulesSection />
             <ActivitySection />
-            <RequirementsSection />
             <CoordinatorsSection />
             <EndingSection />
           </main>
