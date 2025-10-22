@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, Users } from "lucide-react";
 import SVGGuard from "./SVGGuard";
 
 const EndingSection = () => {
@@ -12,6 +12,10 @@ const EndingSection = () => {
     setTimeout(() => {
       window.location.reload();
     }, 800);
+  };
+
+  const handleRegister = () => {
+    window.open("https://your-registration-link.com", "_blank");
   };
 
   return (
@@ -74,9 +78,24 @@ const EndingSection = () => {
         </motion.div>
         
         <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="mb-12"
+        >
+          <button
+            onClick={handleRegister}
+            className="group relative px-12 py-6 sm:px-16 sm:py-8 border-4 border-accent bg-accent/10 text-accent font-bebas font-bold text-3xl sm:text-5xl md:text-6xl tracking-wider hover:bg-accent hover:text-black transition-all duration-300 box-glow-intense inline-flex items-center gap-4 animate-pulse-glow"
+          >
+            <Users className="w-10 h-10 sm:w-14 sm:h-14 group-hover:scale-110 transition-transform duration-300" />
+            REGISTER YOUR TEAM
+          </button>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.8, delay: 1.4 }}
           className="mb-8"
         >
           <button
@@ -87,11 +106,11 @@ const EndingSection = () => {
             PLAY AGAIN
           </button>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 1, delay: 1.6 }}
+          transition={{ duration: 1, delay: 1.8 }}
           className="space-y-6"
         >
           <div className="flex items-center justify-center gap-4">
