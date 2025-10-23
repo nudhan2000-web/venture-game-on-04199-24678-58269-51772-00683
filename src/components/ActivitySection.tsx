@@ -194,39 +194,6 @@ const ActivitySection = () => {
               </motion.div>
             </div>
 
-            {/* Base - Competitors */}
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={isInView ? { opacity: 1, scaleX: 1 } : {}}
-              transition={{ duration: 1, delay: 1 }}
-              className="w-full h-2 bg-gradient-to-r from-transparent via-primary to-transparent mb-8"
-            />
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="flex justify-center items-center gap-3 sm:gap-6 flex-wrap"
-            >
-              <div className="text-center">
-                <div className="font-orbitron text-xs sm:text-sm text-primary/70 mb-3">COMPETING STARTUPS</div>
-                <div className="flex gap-2 sm:gap-3">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.4, delay: 1.4 + i * 0.1 }}
-                      whileHover={{ scale: 1.1, y: -5 }}
-                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary/30 to-primary/10 rounded-lg flex items-center justify-center border-2 border-primary/40 cursor-pointer hover:border-primary/80 transition-all"
-                    >
-                      <span className="text-base sm:text-lg">💼</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
             {/* Bottom tagline */}
             <motion.div
               initial={{ opacity: 0 }}
