@@ -15,7 +15,7 @@ const EndingSection = () => {
   };
 
   const handleRegister = () => {
-    window.open("https://your-registration-link.com", "_blank");
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfSyliZSwDkdyPEIcg2p-94agnqdealmDYUeEbr6PyGXOrh6w/viewform", "_blank");
   };
 
   return (

@@ -6,6 +6,7 @@ import BackButton from "@/components/BackButton";
 import RegisterButton from "@/components/RegisterButton";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
 import EventFlowSection from "@/components/EventFlowSection";
 import EvaluationSection from "@/components/EvaluationSection";
 import RulesSection from "@/components/RulesSection";
@@ -45,6 +46,7 @@ const Index = () => {
           <main className="bg-black space-y-0 overflow-x-hidden max-w-full">
             <HeroSection />
             <AboutSection />
+            <CaseStudiesSection />
             <EventFlowSection />
             <EvaluationSection />
             <RulesSection />

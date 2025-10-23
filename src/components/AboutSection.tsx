@@ -42,7 +42,7 @@ const AboutSection = () => {
           className="bg-card border border-primary/30 p-4 sm:p-8 md:p-12 rounded-lg box-glow mb-6 sm:mb-12"
         >
           <p className="text-sm sm:text-lg md:text-xl text-foreground/90 leading-relaxed">
-            <span className="font-orbitron text-primary">VENTURA</span> is a startup investment simulation event where participants pitch innovative business ideas. Judges and audiences act as investors using fake Ventura currency — where <span className="text-primary font-semibold">creativity, strategy, and survival</span> determine who gets <span className="text-accent font-bold">SOLD</span>.
+            <span className="font-orbitron text-primary">VENTURA</span> is a startup investment simulation event where participants pitch innovative business ideas. Judges and audiences act as investors using Ventura currency — where <span className="text-primary font-semibold">creativity, strategy, and survival</span> determine who gets <span className="text-accent font-bold">SOLD</span>.
           </p>
         </motion.div>
         

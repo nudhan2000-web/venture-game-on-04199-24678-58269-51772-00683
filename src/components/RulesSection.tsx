@@ -13,8 +13,6 @@ const RulesSection = () => {
     "Teams must present their business idea clearly with supporting materials",
     "Judges and audience members receive fake Ventura currency for investment",
     "Investment decisions are based on creativity, feasibility, and presentation",
-    "The team with the highest total investment wins and gets marked as SOLD",
-    "Teams that fail to secure sufficient investment are marked as UNSOLD",
     "All decisions by judges and audience are final",
     "Teams must maintain professional conduct throughout the event",
   ];
