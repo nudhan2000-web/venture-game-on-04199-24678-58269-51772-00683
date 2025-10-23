@@ -4,9 +4,9 @@ import FloatingShapes from "./FloatingShapes";
 import SVGGuard from "./SVGGuard";
 
 const HeroSection = () => {
-  const scrollToNext = () => {
-    const nextSection = document.getElementById("about");
-    nextSection?.scrollIntoView({ behavior: "smooth" });
+  const scrollToCaseStudies = () => {
+    const caseStudiesSection = document.getElementById("case-studies");
+    caseStudiesSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -56,10 +56,10 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 1.2 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={scrollToNext}
+          onClick={scrollToCaseStudies}
           className="mt-6 sm:mt-16 px-6 py-3 sm:px-8 sm:py-4 border-2 border-primary text-primary text-sm sm:text-base font-orbitron font-semibold tracking-wider hover:bg-primary hover:text-black transition-all duration-300 box-glow"
         >
-          REGISTER NOW
+          VIEW CASE STUDIES
         </motion.button>
         
         <motion.div
