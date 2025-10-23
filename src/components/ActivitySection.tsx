@@ -48,9 +48,9 @@ const ActivitySection = () => {
           transition={{ duration: 0.8 }}
           className="font-bebas text-3xl sm:text-5xl md:text-8xl mb-4 sm:mb-8 animate-flicker"
         >
-          <span className="text-primary text-glow-intense">CONVINCE.</span>{" "}
-          <span className="text-accent text-glow-intense">NEGOTIATE.</span>{" "}
-          <span className="text-primary text-glow-intense">WIN.</span>
+          <span className="text-primary text-glow-intense">PITCH.</span>{" "}
+          <span className="text-accent text-glow-intense">COMPETE.</span>{" "}
+          <span className="text-primary text-glow-intense">CONQUER.</span>
         </motion.h2>
         
         <motion.div
@@ -61,48 +61,99 @@ const ActivitySection = () => {
         >
           <h3 className="font-orbitron text-lg sm:text-3xl text-primary mb-3 sm:mb-6">INVESTMENT SIMULATION</h3>
           <p className="text-sm sm:text-xl text-foreground/90 leading-relaxed mb-4 sm:mb-8">
-            In this high-stakes game, your startup's survival depends on your ability to secure investment. 
-            Judges and audience members hold the power with their Ventura currency. 
-            Will your idea be <span className="text-accent font-bold text-lg sm:text-2xl">SOLD</span> or <span className="text-destructive font-bold text-lg sm:text-2xl">UNSOLD</span>?
+            In this high-stakes game, your startup's survival depends on your ability to secure investment.
+            Judges and audience members hold the power with their Ventura currency.
           </p>
-          
-          {/* Character Animations */}
-          <div className="flex justify-center items-center gap-4 sm:gap-8 mb-4 sm:mb-8">
-            <SVGAudience className="h-20 sm:h-32 md:h-40 w-auto" delay={0.3} />
-            <SVGStamp className="h-20 sm:h-32 md:h-40 w-auto" delay={0.6} text="SOLD" />
-          </div>
-          
-          <div className="flex flex-col md:flex-row gap-4 sm:gap-8 justify-center items-center mt-6 sm:mt-12">
+
+          {/* Victory Pyramid */}
+          <div className="flex flex-col items-center gap-6 sm:gap-8 mt-8 sm:mt-12">
+            {/* Winner at the top */}
             <motion.div
-              animate={{ 
-                scale: [1, 1.1, 1],
-                rotate: [0, 5, 0, -5, 0]
-              }}
-              transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="bg-accent/20 border-4 border-accent px-6 py-4 sm:px-12 sm:py-8 rounded-xl text-3xl sm:text-6xl font-bebas text-accent box-glow-intense"
+              initial={{ opacity: 0, y: -30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="relative"
             >
-              SOLD
+              <motion.div
+                animate={{
+                  scale: [1, 1.05, 1],
+                  y: [0, -10, 0]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-16 h-16 sm:w-24 sm:h-24 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center border-4 border-yellow-300 shadow-2xl shadow-yellow-500/50">
+                  <span className="text-2xl sm:text-4xl">🏆</span>
+                </div>
+                <div className="mt-4 px-6 py-2 bg-accent/20 border-2 border-accent rounded-lg">
+                  <span className="font-bebas text-xl sm:text-3xl text-accent">WINNER</span>
+                </div>
+              </motion.div>
             </motion.div>
-            
-            <div className="text-xl sm:text-4xl text-muted-foreground font-bebas">VS</div>
-            
-            <motion.div
-              animate={{ 
-                opacity: [1, 0.5, 1]
-              }}
-              transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="bg-destructive/20 border-4 border-destructive px-5 py-4 sm:px-8 sm:py-8 rounded-xl text-3xl sm:text-6xl font-bebas text-destructive line-through opacity-50"
+
+            {/* Pyramid structure */}
+            <div className="relative w-full max-w-md">
+              {/* Top level - 2nd & 3rd place */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                className="flex justify-center gap-8 sm:gap-12 mb-6"
+              >
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-gray-300 to-gray-500 rounded-full flex items-center justify-center border-4 border-gray-200 shadow-lg">
+                    <span className="text-lg sm:text-2xl">🥈</span>
+                  </div>
+                  <span className="mt-2 font-orbitron text-xs sm:text-sm text-muted-foreground">2nd</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center border-4 border-orange-300 shadow-lg">
+                    <span className="text-lg sm:text-2xl">🥉</span>
+                  </div>
+                  <span className="mt-2 font-orbitron text-xs sm:text-sm text-muted-foreground">3rd</span>
+                </div>
+              </motion.div>
+
+              {/* Bottom level - participants */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.9 }}
+                className="flex justify-center gap-3 sm:gap-6"
+              >
+                {[1, 2, 3, 4].map((i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      y: [0, -5, 0]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.2
+                    }}
+                    className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/20 rounded-full flex items-center justify-center border-2 border-primary/40"
+                  >
+                    <span className="text-sm sm:text-lg">👤</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 1.1 }}
+              className="text-xs sm:text-base text-foreground/70 text-center font-orbitron max-w-md"
             >
-              UNSOLD
-            </motion.div>
+              Compete to reach the top and claim victory
+            </motion.p>
           </div>
         </motion.div>
       </div>
