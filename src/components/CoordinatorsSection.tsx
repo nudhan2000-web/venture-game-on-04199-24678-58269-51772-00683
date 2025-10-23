@@ -8,9 +8,9 @@ const CoordinatorsSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const coordinators = [
-    { name: "Sanjay V", role: "Student Coordinator", phone: "+91 8610315770", type: "student" },
-    { name: "Vetrichelva RS", role: "Student Coordinator", phone: "+91 93440 16363", type: "student" },
-    { name: "Shaheen", role: "Student Coordinator", phone: "+91 78455 88146", type: "student" },
+    { name: "Sanjay V", phone: "+91 8610315770", type: "student" },
+    { name: "Vetrichelva RS", phone: "+91 93440 16363", type: "student" },
+    { name: "Shaheen", phone: "+91 78455 88146", type: "student" },
   ];
 
   return (
@@ -24,7 +24,7 @@ const CoordinatorsSection = () => {
           transition={{ duration: 0.8 }}
           className="font-bebas text-4xl sm:text-6xl md:text-8xl text-primary text-glow text-center mb-8 sm:mb-20"
         >
-          GAME MASTERS
+          STUDENT COORDINATORS
         </motion.h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -60,9 +60,6 @@ const CoordinatorsSection = () => {
                   hoveredIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-80'
                 }`}>
                   <h3 className="font-bebas text-2xl sm:text-3xl text-foreground mb-2">{coordinator.name}</h3>
-                  <div className="mb-2 inline-block px-2 sm:px-3 py-1 rounded-full text-xs font-orbitron bg-primary/20 border border-primary text-primary">
-                    {coordinator.role}
-                  </div>
                   <p className="font-orbitron text-xs sm:text-sm text-muted-foreground mt-2">{coordinator.phone}</p>
                 </div>
                 
