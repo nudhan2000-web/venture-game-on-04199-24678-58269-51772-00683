@@ -8,9 +8,9 @@ const CoordinatorsSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const coordinators = [
-    { name: "Sanjay V", role: "2nd yr", phone: "+91 8610315770", type: "student" },
-    { name: "Vetrichelva RS", role: "2nd yr", phone: "+91 93440 16363", type: "student" },
-    { name: "Shaheen", role: "3rd yr", phone: "+91 78455 88146", type: "student" },
+    { name: "Sanjay V", role: "Student Coordinator", phone: "+91 8610315770", type: "student" },
+    { name: "Vetrichelva RS", role: "Student Coordinator", phone: "+91 93440 16363", type: "student" },
+    { name: "Shaheen", role: "Student Coordinator", phone: "+91 78455 88146", type: "student" },
   ];
 
   return (
